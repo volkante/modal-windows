@@ -1,14 +1,19 @@
 // Select elements and assign them to variables
+
+const header = document.querySelector("header");
 const firstButton = document.querySelector(".first-modal-button");
 const secondButton = document.querySelector(".second-modal-button");
 const thirdButton = document.querySelector(".third-modal-button");
+
 
 const closeButton = document.querySelector(".close-button");
 
 const article = document.querySelector("article");
 const articleContent = document.querySelector("article p");
 
-const contents = ["First content", "Second content", "Third content"];
+const body = document.querySelector("body");
+
+//const contents = ["First content", "Second content", "Third content"];
 
 // Define functions
 const makeVisible = (element) => {
@@ -43,3 +48,13 @@ thirdButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
   makeInvisible(article);
 })
+
+
+document.addEventListener("click", (e) => {
+  console.log("e.target benim: ", e.target);
+  if(!article.contains(e.target) && !header.contains(e.target)){
+    console.log("Elementin dışına tıkladın");
+    makeInvisible(article);
+  }
+})
+
