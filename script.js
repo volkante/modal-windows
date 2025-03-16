@@ -51,7 +51,7 @@ closeButton.addEventListener("click", () => {
 
 
 document.addEventListener("click", (e) => {
-  console.log("e.target benim: ", e.target);
+  console.log("e.target ben: ", e.target);
   if(!article.contains(e.target) && !header.contains(e.target)){
     console.log("Elementin dışına tıkladın");
     makeInvisible(article);
