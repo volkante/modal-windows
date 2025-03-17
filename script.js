@@ -4,20 +4,16 @@ const firstButton = document.querySelector(".first-modal-button");
 const secondButton = document.querySelector(".second-modal-button");
 const thirdButton = document.querySelector(".third-modal-button");
 
-
 const closeButton = document.querySelector(".close-button");
 
 const article = document.querySelector("article");
 const articleContent = document.querySelector("article p");
 
-const body = document.querySelector("body");
-
-//Store modal window content
+//Store modal window contents
 const contents = ["First content", "Second content", "Third content"];
 
 //Store buttons
-const buttons = [firstButton, secondButton, thirdButton]
-
+const buttons = [firstButton, secondButton, thirdButton];
 
 // Define functions
 const displayContent = (element, content) => {
@@ -25,29 +21,28 @@ const displayContent = (element, content) => {
 };
 
 const toggleVisibility = (element) => {
-  let {visibility} = element.style;
-  visibility = "visible" ? visibility = "hidden" : "";
-}
+  let { visibility } = element.style;
+  visibility = "visible" ? (visibility = "hidden") : "";
+};
 
 //Add event listeners for modal buttons
 buttons.forEach((element, index) => {
   element.addEventListener("click", () => {
-      toggleVisibility(article);
-      displayContent(articleContent, contents[index]);
-  })
-})
+    toggleVisibility(article);
+    displayContent(articleContent, contents[index]);
+  });
+});
 
-//Add event listener for close Button
+//Add event listener for close button
 closeButton.addEventListener("click", () => {
   toggleVisibility(article);
-})
+});
 
-
+//Add event listener for document
 document.addEventListener("click", (e) => {
-  console.log("e.target ben: ", e.target);
-  if(!article.contains(e.target) && !header.contains(e.target)){
+  console.log("e.target şu: ", e.target);
+  if (!article.contains(e.target) && !header.contains(e.target)) {
     console.log("Elementin dışına tıkladın");
     toggleVisibility(article);
   }
-})
-
+});
