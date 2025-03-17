@@ -1,5 +1,4 @@
 // Select elements and assign them to variables
-
 const header = document.querySelector("header");
 const firstButton = document.querySelector(".first-modal-button");
 const secondButton = document.querySelector(".second-modal-button");
@@ -13,40 +12,34 @@ const articleContent = document.querySelector("article p");
 
 const body = document.querySelector("body");
 
-//const contents = ["First content", "Second content", "Third content"];
+//Store modal window content
+const contents = ["First content", "Second content", "Third content"];
+
+//Store buttons
+const buttons = [firstButton, secondButton, thirdButton]
+
 
 // Define functions
-const makeVisible = (element) => {
-  element.style.visibility = "visible";
-};
-
-const makeInvisible = (element) => {
-  element.style.visibility = "hidden";
-};
-
 const displayContent = (element, content) => {
   element.textContent = content;
 };
 
+const toggleVisibility = (element) => {
+  let {visibility} = element.style;
+  visibility = "visible" ? visibility = "hidden" : "";
+}
 
-//Add event listeners
-firstButton.addEventListener("click", () => {
-  makeVisible(article);
-  displayContent(articleContent, "First content");
-});
+//Add event listeners for modal buttons
+buttons.forEach((element, index) => {
+  element.addEventListener("click", () => {
+      toggleVisibility(article);
+      displayContent(articleContent, contents[index]);
+  })
+})
 
-secondButton.addEventListener("click", () => {
-  makeVisible(article);
-  displayContent(articleContent, "Second content");
-});
-
-thirdButton.addEventListener("click", () => {
-  makeVisible(article);
-  displayContent(articleContent, "Third content");
-});
-
+//Add event listener for close Button
 closeButton.addEventListener("click", () => {
-  makeInvisible(article);
+  toggleVisibility(article);
 })
 
 
@@ -54,7 +47,7 @@ document.addEventListener("click", (e) => {
   console.log("e.target ben: ", e.target);
   if(!article.contains(e.target) && !header.contains(e.target)){
     console.log("Elementin dışına tıkladın");
-    makeInvisible(article);
+    toggleVisibility(article);
   }
 })
 
