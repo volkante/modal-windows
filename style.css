@@ -4,9 +4,22 @@
   box-sizing: border-box;
 }
 
+.container {
+  background-color: green;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+header {
+  border: 2px solid red;
+}
+
 article {
-  display: inline-block;
+  display: block;
+  width: 30%;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 22px;
   border: 5px solid black;
 
@@ -26,10 +39,10 @@ button {
 }
 
 header button {
-  margin-top: 50px;
   width: 200px;
   height: 50px;
 }
 
-.modal-window-on {
+/* .modal-window-on {
 }
+ */

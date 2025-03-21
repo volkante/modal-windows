@@ -41,7 +41,11 @@ closeButton.addEventListener("click", () => {
 
 //Add event listener for click to toggle modal window
 document.addEventListener("click", (e) => {
-  if (!article.contains(e.target) && !header.contains(e.target)) {
+  if (
+    !article.contains(e.target) &&
+    !header.contains(e.target) &&
+    articleContent.textContent.length > 0
+  ) {
     console.log("Elementin dışına tıkladın");
     toggleVisibility(article);
   }
@@ -49,6 +53,7 @@ document.addEventListener("click", (e) => {
 
 //Add event listener for key down esc to close the modal window
 document.addEventListener("keydown", (e) => {
+  console.log(e);
   if ((article.style.visibility = "visible") && e.key === "Escape") {
     toggleVisibility(article);
   }
