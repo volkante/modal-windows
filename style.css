@@ -15,34 +15,28 @@ header {
 }
 
 article {
-  display: block;
   width: 30%;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
   padding: 22px;
-  border: 5px solid black;
-
   visibility: hidden;
-  background-color: yellow;
-}
-
-article p {
-  display: inline-block;
-  width: 300px;
-  height: 200px;
-}
-
-button {
-  background-color: pink;
-  border-radius: 20%;
+  background-color: white;
+  border: 2px solid black;
+  position: relative;
 }
 
 header button {
   width: 200px;
   height: 50px;
+  background-color: pink;
+  border-radius: 20%;
 }
 
-/* .modal-window-on {
+.close-button {
+  position: absolute;
+  top: 2px;
+  right: 4px;
 }
- */
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}

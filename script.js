@@ -8,7 +8,11 @@ const article = document.querySelector("article");
 const articleContent = document.querySelector("article p");
 
 //Store modal window contents
-const contents = ["First content", "Second content", "Third content"];
+const contents = [
+  "First content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
+  "Second content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
+  "Third content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
+];
 
 //Store buttons
 const buttons = [firstButton, secondButton, thirdButton];
@@ -25,6 +29,10 @@ const toggleVisibility = (element) => {
     element.style.visibility = "visible";
   }
 };
+
+const disableButtons = () => {};
+
+const enableButtons = (element) => {};
 
 //Add event listeners for modal buttons
 buttons.forEach((element, index) => {
@@ -46,7 +54,6 @@ document.addEventListener("click", (e) => {
     !header.contains(e.target) &&
     articleContent.textContent.length > 0
   ) {
-    console.log("Elementin dışına tıkladın");
     toggleVisibility(article);
   }
 });
