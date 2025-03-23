@@ -22,46 +22,58 @@ const displayContent = (element, content) => {
   element.textContent = content;
 };
 
-const toggleVisibility = (element) => {
-  if (element.style.visibility === "visible") {
-    element.style.visibility = "hidden";
-  } else {
-    element.style.visibility = "visible";
-  }
+const makeVisible = (element) => {
+  element.style.visibility = "visible";
 };
 
-const disableButtons = () => {};
+const makeInvisible = (element) => {
+  element.style.visibility = "hidden";
+};
 
-const enableButtons = (element) => {};
+const disableButtons = () => {
+  buttons.forEach((element) => {
+    element.disabled = true;
+  });
+};
+
+const enableButtons = () => {
+  buttons.forEach((element) => {
+    element.disabled = false;
+  });
+};
 
 //Add event listeners for modal buttons
 buttons.forEach((element, index) => {
   element.addEventListener("click", () => {
-    toggleVisibility(article);
+    disableButtons();
+    makeVisible(article);
     displayContent(articleContent, contents[index]);
   });
 });
 
 //Add event listener for close button
 closeButton.addEventListener("click", () => {
-  toggleVisibility(article);
+  makeInvisible(article);
+  enableButtons();
 });
 
-//Add event listener for click to toggle modal window
+//Add event listener for click to show or hide modal window
 document.addEventListener("click", (e) => {
   if (
     !article.contains(e.target) &&
     !header.contains(e.target) &&
     articleContent.textContent.length > 0
   ) {
-    toggleVisibility(article);
+    makeInvisible(article);
+    enableButtons();
   }
 });
 
 //Add event listener for key down esc to close the modal window
 document.addEventListener("keydown", (e) => {
   console.log(e);
-  if ((article.style.visibility = "visible") && e.key === "Escape") {
-    toggleVisibility(article);
+  if (article.style.visibility === "visible" && e.key === "Escape") {
+    makeInvisible(article);
+    enableButtons();
   }
 });
