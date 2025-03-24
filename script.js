@@ -42,7 +42,7 @@ const enableButtons = () => {
   });
 };
 
-//Add event listeners for modal buttons
+//Add event listeners for each modal button
 buttons.forEach((element, index) => {
   element.addEventListener("click", () => {
     disableButtons();
@@ -71,7 +71,7 @@ document.addEventListener("click", (e) => {
 
 //Add event listener for key down esc to close the modal window
 document.addEventListener("keydown", (e) => {
-  console.log(e);
+  console.log(e); //logs the event
   if (article.style.visibility === "visible" && e.key === "Escape") {
     makeInvisible(article);
     enableButtons();
