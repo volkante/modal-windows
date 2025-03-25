@@ -1,3 +1,7 @@
+//Import modal window contents from contents.js
+
+import { contents } from "./contents.js";
+
 // Select elements and assign them to variables
 const header = document.querySelector("header");
 const firstButton = document.querySelector(".first-modal-button");
@@ -6,13 +10,6 @@ const thirdButton = document.querySelector(".third-modal-button");
 const closeButton = document.querySelector(".close-button");
 const article = document.querySelector("article");
 const articleContent = document.querySelector("article p");
-
-//Store modal window contents
-const contents = [
-  "First content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
-  "Second content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
-  "Third content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vero. Excepturi exercitationem maxime adipisci? Ullam quam quo sit animi exercitationem?",
-];
 
 //Store buttons
 const buttons = [firstButton, secondButton, thirdButton];
