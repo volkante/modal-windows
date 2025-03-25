@@ -3,6 +3,7 @@
 import { contents } from "./contents.js";
 
 // Select elements and assign them to variables
+const container = document.querySelector(".container");
 const header = document.querySelector("header");
 const firstButton = document.querySelector(".first-modal-button");
 const secondButton = document.querySelector(".second-modal-button");
@@ -39,12 +40,21 @@ const enableButtons = () => {
   });
 };
 
+const blurContainer = () => {
+  container.classList.add("blurred");
+};
+
+const unblurContainer = () => {
+  container.classList.remove("blurred");
+};
+
 //Add event listeners for each modal button
 buttons.forEach((element, index) => {
   element.addEventListener("click", () => {
     disableButtons();
     makeVisible(article);
     displayContent(articleContent, contents[index]);
+    blurContainer();
   });
 });
 
@@ -52,6 +62,7 @@ buttons.forEach((element, index) => {
 closeButton.addEventListener("click", () => {
   makeInvisible(article);
   enableButtons();
+  unblurContainer();
 });
 
 //Add event listener for click to show or hide modal window
@@ -63,6 +74,7 @@ document.addEventListener("click", (e) => {
   ) {
     makeInvisible(article);
     enableButtons();
+    unblurContainer();
   }
 });
 
@@ -72,5 +84,6 @@ document.addEventListener("keydown", (e) => {
   if (article.style.visibility === "visible" && e.key === "Escape") {
     makeInvisible(article);
     enableButtons();
+    unblurContainer();
   }
 });

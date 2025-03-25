@@ -4,7 +4,16 @@
   box-sizing: border-box;
 }
 
+.blurred {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
 .container {
+  height: 100vh;
   background: rgb(22, 200, 55);
   background: linear-gradient(
     150deg,
@@ -15,7 +24,6 @@
     rgba(186, 255, 90, 1) 75%,
     rgba(22, 200, 55, 1) 88%
   );
-  height: 100vh;
   padding-top: 20px;
 }
 
@@ -26,11 +34,17 @@ header {
 article {
   width: 60%;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 22px;
   visibility: hidden;
   background-color: white;
   border: 2px solid black;
   position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 header button {
@@ -45,11 +59,6 @@ header button {
   top: 2px;
   right: 4px;
 }
-
-/* .blur {
-  filter: blur(6px);
-}
- */
 
 /* modal window buttons*/
 
