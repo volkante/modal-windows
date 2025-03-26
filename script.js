@@ -15,7 +15,7 @@ const articleContent = document.querySelector("article p");
 //Store buttons
 const buttons = [firstButton, secondButton, thirdButton];
 
-// Define functions
+// Define basic functions
 const displayContent = (element, content) => {
   element.textContent = content;
 };
@@ -28,18 +28,6 @@ const makeInvisible = (element) => {
   element.style.visibility = "hidden";
 };
 
-const disableButtons = () => {
-  buttons.forEach((element) => {
-    element.disabled = true;
-  });
-};
-
-const enableButtons = () => {
-  buttons.forEach((element) => {
-    element.disabled = false;
-  });
-};
-
 const blurContainer = () => {
   container.classList.add("blurred");
 };
@@ -48,9 +36,37 @@ const unblurContainer = () => {
   container.classList.remove("blurred");
 };
 
-const removeCursor = () => {
+const removeCursor = (element) => {
+  element.style.cursor = "default";
+};
+
+const addCursor = (element) => {
+  element.style.cursor = "pointer";
+};
+
+const removeHoverEffect = (element) => {
+  element.classList.add("no-hover");
+};
+
+const addHoverEffect = (element) => {
+  element.classList.remove("no-hover");
+};
+
+// Define button functions
+
+const disableButtons = () => {
   buttons.forEach((element) => {
-    element.style.cursor = "default";
+    element.disabled = true;
+    removeCursor(element);
+    removeHoverEffect(element);
+  });
+};
+
+const enableButtons = () => {
+  buttons.forEach((element) => {
+    element.disabled = false;
+    addCursor(element);
+    addHoverEffect(element);
   });
 };
 
@@ -71,7 +87,7 @@ closeButton.addEventListener("click", () => {
   unblurContainer();
 });
 
-//Add event listener for click to show or hide modal window
+//Add event listener for click to hide modal window
 document.addEventListener("click", (e) => {
   if (
     !article.contains(e.target) &&
