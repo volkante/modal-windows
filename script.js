@@ -48,6 +48,12 @@ const unblurContainer = () => {
   container.classList.remove("blurred");
 };
 
+const removeCursor = () => {
+  buttons.forEach((element) => {
+    element.style.cursor = "default";
+  });
+};
+
 //Add event listeners for each modal button
 buttons.forEach((element, index) => {
   element.addEventListener("click", () => {
