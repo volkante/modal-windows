@@ -1,20 +1,14 @@
-//Import modal window contents from contents.js
-
+// Import modal window contents from contents.js
 import { contents, contentTitles } from "./contents.js";
 
-// Select elements and assign them to variables
+// Select elements and assign variables to them
 const container = document.querySelector(".container");
 const header = document.querySelector("header");
-const firstButton = document.querySelector(".first-modal-button");
-const secondButton = document.querySelector(".second-modal-button");
-const thirdButton = document.querySelector(".third-modal-button");
+const modalWindowButtons = document.querySelectorAll("header button");
 const closeButton = document.querySelector(".close-button");
 const article = document.querySelector("article");
 const articleTitle = document.querySelector(".modal-window-title");
 const articleContent = document.querySelector("article p");
-
-//Store buttons
-const buttons = [firstButton, secondButton, thirdButton];
 
 // Define basic functions
 const displayContent = (element, content) => {
@@ -54,9 +48,8 @@ const addHoverEffect = (element) => {
 };
 
 // Define button functions
-
 const disableButtons = () => {
-  buttons.forEach((element) => {
+  modalWindowButtons.forEach((element) => {
     element.disabled = true;
     removeCursor(element);
     removeHoverEffect(element);
@@ -64,15 +57,15 @@ const disableButtons = () => {
 };
 
 const enableButtons = () => {
-  buttons.forEach((element) => {
+  modalWindowButtons.forEach((element) => {
     element.disabled = false;
     addCursor(element);
     addHoverEffect(element);
   });
 };
 
-//Add event listeners for each modal button
-buttons.forEach((element, index) => {
+// Add click event listeners for each modal button
+modalWindowButtons.forEach((element, index) => {
   element.addEventListener("click", () => {
     disableButtons();
     makeVisible(article);
@@ -82,19 +75,19 @@ buttons.forEach((element, index) => {
   });
 });
 
-//Add event listener for close button
+// Add click event listener to close button
 closeButton.addEventListener("click", () => {
   makeInvisible(article);
   enableButtons();
   unblurContainer();
 });
 
-//Add event listener for click to hide modal window
+// Add click event listener to document to hide modal window
 document.addEventListener("click", (e) => {
   if (
     !article.contains(e.target) &&
     !header.contains(e.target) &&
-    articleContent.textContent.length > 0
+    article.style.visibility === "visible"
   ) {
     makeInvisible(article);
     enableButtons();
@@ -102,7 +95,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//Add event listener for key down esc to close the modal window
+// Add key down esc event listener to close the modal window
 document.addEventListener("keydown", (e) => {
   if (article.style.visibility === "visible" && e.key === "Escape") {
     makeInvisible(article);
