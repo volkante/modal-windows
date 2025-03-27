@@ -123,11 +123,11 @@ header {
 }
 
 article {
-  width: 60%;
+  width: 64%;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  padding: 22px;
+  padding: 54px;
   visibility: hidden;
   background-color: white;
   position: relative;
@@ -135,14 +135,16 @@ article {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
 }
 
 .close-button {
   position: absolute;
-  top: 2px;
-  right: 4px;
+  top: 6px;
+  right: 6px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
 }
 .modal-window-title {
   margin-bottom: 20px;
