@@ -38,28 +38,6 @@ header {
   gap: 36px;
 }
 
-article {
-  width: 60%;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 22px;
-  visibility: hidden;
-  background-color: white;
-  position: relative;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.close-button {
-  position: absolute;
-  top: 2px;
-  right: 4px;
-  cursor: pointer;
-}
-
 /* modal window buttons*/
 
 .button-17 {
@@ -142,4 +120,34 @@ article {
 .button-17.no-hover:hover {
   background-color: white;
   color: #3c4043;
+}
+
+article {
+  width: 60%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 22px;
+  visibility: hidden;
+  background-color: white;
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-button {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  cursor: pointer;
+  padding: 4px;
+}
+.modal-window-title {
+  margin-bottom: 20px;
+}
+
+.modal-window-text {
+  line-height: 1.5;
 }
