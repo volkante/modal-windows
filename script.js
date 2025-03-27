@@ -1,6 +1,6 @@
 //Import modal window contents from contents.js
 
-import { contents } from "./contents.js";
+import { contents, contentTitles } from "./contents.js";
 
 // Select elements and assign them to variables
 const container = document.querySelector(".container");
@@ -10,6 +10,7 @@ const secondButton = document.querySelector(".second-modal-button");
 const thirdButton = document.querySelector(".third-modal-button");
 const closeButton = document.querySelector(".close-button");
 const article = document.querySelector("article");
+const articleTitle = document.querySelector(".modal-window-title");
 const articleContent = document.querySelector("article p");
 
 //Store buttons
@@ -76,6 +77,7 @@ buttons.forEach((element, index) => {
     disableButtons();
     makeVisible(article);
     displayContent(articleContent, contents[index]);
+    displayContent(articleTitle, contentTitles[index]);
     blurContainer();
   });
 });
