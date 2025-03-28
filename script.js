@@ -66,7 +66,8 @@ const enableButtons = () => {
 
 // Add click event listeners for each modal button
 modalWindowButtons.forEach((element, index) => {
-  element.addEventListener("click", () => {
+  element.addEventListener("click", (e) => {
+    e.stopPropagation();
     disableButtons();
     makeVisible(article);
     displayContent(articleContent, contents[index]);
@@ -84,11 +85,7 @@ closeButton.addEventListener("click", () => {
 
 // Add click event listener to document to hide modal window
 document.addEventListener("click", (e) => {
-  if (
-    !article.contains(e.target) &&
-    !header.contains(e.target) &&
-    article.style.visibility === "visible"
-  ) {
+  if (!article.contains(e.target) && article.style.visibility === "visible") {
     makeInvisible(article);
     enableButtons();
     unblurContainer();
